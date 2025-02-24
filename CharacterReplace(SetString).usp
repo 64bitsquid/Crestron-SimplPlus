@@ -5,11 +5,11 @@ STRING_OUTPUT OUTPUT$;
 
 CHANGE INPUT$
 {
-	INTEGER nextChar, length, i;
-	STRING temp[50];
+    INTEGER nextChar, length, i;
+    STRING temp[50];
 
-    length = len(INPUT$);
     temp = INPUT$;
+    length = len(temp);
     clearbuffer(INPUT$);
 
     While(find("\x20", temp) > 0)
@@ -21,8 +21,8 @@ CHANGE INPUT$
                 SetString("\x0d", i, temp);
             }
         }
-	}	
-	OUTPUT$ = temp;
+    }	
+    OUTPUT$ = temp;
 }
 
 FUNCTION main()
