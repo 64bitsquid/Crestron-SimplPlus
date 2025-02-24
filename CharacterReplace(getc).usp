@@ -5,21 +5,21 @@ STRING_OUTPUT OUTPUT$;
 
 CHANGE INPUT$
 {
-	INTEGER nextChar;
-	STRING temp[50];
+    INTEGER nextChar;
+    STRING temp[50];
 
-	do
+    do
+    {
+        nextChar = getc(INPUT$);
+	if(nextChar =  atoi("\x20"))
 	{
-		nextChar = getc(INPUT$);
-		if(nextChar =  atoi("\x20"))
-		{
-			nextChar = atoi("\x0d");
-		}
-		temp = temp + chr(nextChar);
-	} until (len(INPUT$) = 0);
-	
-	OUTPUT$ = temp;
-	clearbuffer(temp);
+	    nextChar = atoi("\x0d");
+	}
+	temp = temp + chr(nextChar);
+    } until (len(INPUT$) = 0);
+
+    OUTPUT$ = temp;
+    clearbuffer(temp);
 }
 
 FUNCTION main()
