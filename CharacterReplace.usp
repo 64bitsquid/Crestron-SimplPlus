@@ -1,0 +1,28 @@
+#DEFAULT_VOLATILE
+
+BUFFER_INPUT INPUT$[50];
+STRING_OUTPUT OUTPUT$;
+
+CHANGE INPUT$
+{
+	INTEGER nextChar, length;
+	STRING temp[50];
+
+	do
+	{
+		nextChar = getc(INPUT$);
+		if(nextChar =  atoi("\x20"))
+		{
+			nextChar = atoi("\x0d");
+		}
+		temp = temp + chr(nextChar);
+	} until (len(INPUT$) = 0);
+	
+	OUTPUT$ = temp;
+	clearbuffer(temp);
+}
+
+FUNCTION main()
+{
+
+}
