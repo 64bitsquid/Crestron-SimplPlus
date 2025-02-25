@@ -12,11 +12,11 @@ CHANGE INPUT$
     length = len(temp);
     clearbuffer(INPUT$);
 
-    While(find("\x20", temp) > 0)
+    while(find("\x20", temp) > 0)
     {
         for(i = 1 to length STEP 1)
         {
-            IF(chr(byte(temp, i)) = "\x20")
+            if(chr(byte(temp, i)) = "\x20")
             {
                 SetString("\x0d", i, temp);
             }
